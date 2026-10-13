@@ -1,0 +1,45 @@
+---
+import { DEMO, restaurant } from '../data/restaurant';
+import HoursTable from './HoursTable.tsx';
+
+const r = restaurant;
+---
+
+<section class="infos" id="infos" aria-labelledby="infos-titre">
+  <div class="wrap">
+    <h2 id="infos-titre">Infos pratiques</h2>
+    <div class="infos-grid">
+      <div>
+        <h3>Adresse</h3>
+        <address>
+          {r.fullName}<br />
+          {r.address.street}<br />
+          {`${r.address.zip} ${r.address.city}`}
+        </address>
+        <a href={r.links.mapsDirections} rel="noopener">Obtenir l’itinéraire</a>
+      </div>
+      <div>
+        <h3>Horaires</h3>
+        <HoursTable client:visible />
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="contact-list" role="list">
+          <li><span>Restaurant</span><a href={`tel:${r.phone.tel}`}>{r.phone.display}</a></li>
+          <li><span>Mobile et WhatsApp</span><a href={`tel:${r.mobile.tel}`}>{r.mobile.display}</a></li>
+          <li><span>E-mail</span><a href={`mailto:${r.email}`}>{r.email}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot">
+      <p>© {r.fullName}, {r.address.city}</p>
+      {
+        DEMO && (
+          <p>
+            Maquette réalisée par <a href={r.author.url}>{r.author.name}</a>
+          </p>
+        )
+      }
+    </div>
+  </div>
+</section>

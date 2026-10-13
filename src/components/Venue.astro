@@ -1,0 +1,27 @@
+---
+import { restaurant } from '../data/restaurant';
+---
+
+<section class="resto wrap" id="restaurant" aria-labelledby="resto-titre">
+  <div class="resto-text">
+    <h2 id="resto-titre">Une salle pour vos fêtes et vos repas d’équipe</h2>
+    <p>
+      Le restaurant vous reçoit du lundi au samedi dans une ambiance chaleureuse et familiale. Pour un anniversaire,
+      un banquet ou un repas d’entreprise, la salle se privatise.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href={restaurant.links.privatisation}>Demander une date</a>
+      <a class="btn btn-ghost" href={`tel:${restaurant.phone.tel}`}>En parler au téléphone</a>
+    </div>
+  </div>
+  <dl class="facts">
+    {
+      restaurant.facts.map((f) => (
+        <div>
+          <dt>{f.value}</dt>
+          <dd>{f.label}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

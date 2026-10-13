@@ -1,0 +1,52 @@
+---
+import { carte } from '../data/carte';
+import { restaurant } from '../data/restaurant';
+import CategoryNav from './CategoryNav.tsx';
+import Dish from './Dish.astro';
+
+const navItems = carte.map(({ slug, title }) => ({ slug, title }));
+---
+
+<section class="carte" id="carte" aria-labelledby="carte-titre">
+  <div class="wrap carte-head">
+    <h2 id="carte-titre">La carte</h2>
+    <p>
+      Commandez par numéro au <a href={`tel:${restaurant.phone.tel}`}>{restaurant.phone.display}</a>. Prix en francs
+      suisses.
+    </p>
+  </div>
+
+  <CategoryNav client:idle items={navItems} />
+
+  <div class="wrap">
+    {
+      carte.map((cat) => (
+        <section class="cat" id={cat.slug} aria-labelledby={`h-${cat.slug}`}>
+          <div class="cat-side">
+            <h3 id={`h-${cat.slug}`}>{cat.title}</h3>
+            <p class="range">
+              n° {cat.dishes[0].n} à {cat.dishes[cat.dishes.length - 1].n}
+            </p>
+            {cat.photo && (
+              <figure class="cat-photo">
+                <img
+                  src={cat.photo.src}
+                  width={cat.photo.width}
+                  height={cat.photo.height}
+                  alt={cat.photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+          </div>
+          <ul class="dishes" role="list">
+            {cat.dishes.map((d) => (
+              <Dish dish={d} />
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</section>

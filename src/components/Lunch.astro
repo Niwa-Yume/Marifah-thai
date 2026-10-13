@@ -1,0 +1,17 @@
+---
+import { restaurant } from '../data/restaurant';
+const { lunch, takeawayDiscount } = restaurant;
+---
+
+<section class="midi" id="midi" aria-labelledby="midi-titre">
+  <div class="wrap">
+    <h2 id="midi-titre">Le midi, entrée et plat pour {lunch.price}</h2>
+    <div>
+      <p>
+        Chaque jour de la semaine, un menu du midi avec une entrée et un plat. Il se prend aussi à l’emporter,
+        avec {takeawayDiscount}&nbsp;% de rabais.
+      </p>
+      <p class="hours">{lunch.days}, {lunch.hours}</p>
+    </div>
+  </div>
+</section>

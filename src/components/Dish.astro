@@ -1,0 +1,30 @@
+---
+import type { Dish } from '../data/carte';
+import { formatPrice, spokenPrice } from '../lib/format';
+
+interface Props {
+  dish: Dish;
+}
+const { dish } = Astro.props;
+---
+
+<li class="dish">
+  <span class="num">{dish.n}</span>
+  <div class="dish-text">
+    <span class="name">{dish.name}</span>
+    <span class="desc">{dish.desc}</span>
+  </div>
+  <span class="price">
+    <span aria-hidden="true">{formatPrice(dish.price)}</span>
+    <span class="sr">{spokenPrice(dish.price)}</span>
+    {dish.unit && <span class="unit">{dish.unit}</span>}
+    {
+      dish.half && (
+        <span class="half">
+          ½ portion <span aria-hidden="true">{formatPrice(dish.half)}</span>
+          <span class="sr">{spokenPrice(dish.half)}</span>
+        </span>
+      )
+    }
+  </span>
+</li>

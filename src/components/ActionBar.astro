@@ -1,0 +1,11 @@
+---
+import { restaurant } from '../data/restaurant';
+import Icon from './Icon.astro';
+---
+
+<!-- Barre d'actions fixe, mobile uniquement -->
+<nav class="bar" aria-label="Actions rapides">
+  <a href={`tel:${restaurant.phone.tel}`}><Icon name="phone" />Appeler</a>
+  <a href={restaurant.links.whatsappOrder} rel="noopener"><Icon name="whatsapp" />WhatsApp</a>
+  <a href={restaurant.links.mapsDirections} rel="noopener"><Icon name="pin" />Itinéraire</a>
+</nav>

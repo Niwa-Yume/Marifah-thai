@@ -1,0 +1,21 @@
+---
+import { restaurant } from '../data/restaurant';
+
+const links = [
+  { href: '#carte', label: 'La carte' },
+  { href: '#midi', label: 'Le midi' },
+  { href: '#emporter', label: 'À l’emporter' },
+  { href: '#restaurant', label: 'Événements' },
+  { href: '#infos', label: 'Infos' },
+];
+---
+
+<header class="top wrap">
+  <a class="wordmark" href="#top" aria-label={`${restaurant.fullName}, retour en haut`}>
+    {restaurant.name}<small>{restaurant.tagline}</small>
+  </a>
+  <nav aria-label="Sections">
+    <ul>{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+  </nav>
+  <a class="btn btn-ghost tel" href={`tel:${restaurant.phone.tel}`}>{restaurant.phone.display}</a>
+</header>

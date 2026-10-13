@@ -1,0 +1,33 @@
+---
+import { restaurant } from '../data/restaurant';
+import OpenStatus from './OpenStatus.tsx';
+---
+
+<section class="hero wrap" aria-labelledby="titre">
+  <div>
+    <OpenStatus client:load />
+    <h1 id="titre">Cuisine thaïe en famille, à Meyrin.</h1>
+    <p class="lede">
+      Curry vert, tom yam, canard laqué, salade de papaye. Toute la carte se commande par numéro, sur place, en
+      terrasse l’été ou à l’emporter.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href={`tel:${restaurant.phone.tel}`}>Appeler pour réserver</a>
+      <a class="btn btn-ghost" href="#carte">Voir la carte</a>
+    </div>
+    <p class="rating">
+      <a href={restaurant.links.mapsPlace} rel="noopener">
+        Noté {restaurant.rating.value} sur 5 par {restaurant.rating.count} clients sur Google
+      </a>
+    </p>
+  </div>
+  <figure class="hero-photo">
+    <img
+      src="/img/assortiment-entrees.webp"
+      width="1102"
+      height="601"
+      fetchpriority="high"
+      alt="Assortiment d’entrées : rouleaux de printemps, satay de poulet, raviolis croustillants, galettes de poisson et sauces"
+    />
+  </figure>
+</section>

@@ -1,0 +1,19 @@
+---
+import { restaurant } from '../data/restaurant';
+---
+
+<section class="emporter" id="emporter" aria-labelledby="emporter-titre">
+  <div class="wrap">
+    <h2 id="emporter-titre">À l’emporter, {restaurant.takeawayDiscount}&nbsp;% de rabais</h2>
+    <div>
+      <p>
+        Sur toute la carte et sur le menu du jour. Appelez avec vos numéros de plats, puis passez récupérer votre
+        commande à la {restaurant.address.street}.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href={`tel:${restaurant.phone.tel}`}>Appeler le {restaurant.phone.display}</a>
+        <a class="btn btn-ghost" href={restaurant.links.whatsappOrder} rel="noopener">Commander sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>

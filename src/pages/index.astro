@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Lunch from '../components/Lunch.astro';
+import Carte from '../components/Carte.astro';
+import Takeaway from '../components/Takeaway.astro';
+import Venue from '../components/Venue.astro';
+import Infos from '../components/Infos.astro';
+import ActionBar from '../components/ActionBar.astro';
+---
+
+<Base
+  title="Restaurant Marifah, cuisine thaïe à Meyrin"
+  description="Cuisine thaïe familiale à Meyrin. Menu du midi à 19.50, 10 % de rabais à l’emporter, terrasse en été, salle privatisable. Rue Virginio-Malnati 42."
+>
+  <Header />
+  <main id="top">
+    <Hero />
+    <Lunch />
+    <Carte />
+    <Takeaway />
+    <Venue />
+    <Infos />
+  </main>
+  <ActionBar />
+</Base>
